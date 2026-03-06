@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Embedded AI Engineer Roadmap</title>
+  <meta name="description" content="15-month student roadmap to become an Embedded AI Engineer. ML/DL mastery → optimization → embedded systems → deployment." />
+  <meta property="og:title" content="Embedded AI Engineer Roadmap" />
+  <meta property="og:description" content="15-month student roadmap. ML/DL → optimization → embedded → deployed." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #080808; color: #e8e8e8; font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #111; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+    button { font-family: inherit; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 0.2s ease forwards; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const phases = [
+      {
+        id: 1,
+        title: "FOUNDATION",
+        subtitle: "Months 1–3",
+        color: "#00FF9C",
+        bg: "#0a1a0f",
+        description: "Tools + Math + Programming basics. Everything else builds on this.",
+        months: [
+          {
+            month: "Month 1",
+            focus: "Linux, Git & Python",
+            workload: "Low–Medium",
+            hours: "~12 hrs/week",
+            why: "Every job post lists these. Learn them now so they become muscle memory.",
+            tasks: [
+              { cat: "TOOLS", items: [
+                "Linux CLI: navigate, chmod, SSH, bash scripting basics",
+                "Git: init, clone, commit, branch, merge, pull requests",
+                "GitHub: repos, README, issues, forks",
+                "VSCode setup, extensions, keyboard shortcuts",
+                "Conda / venv for Python environments",
+              ]},
+              { cat: "CODE", items: [
+                "Python: data types, loops, functions, classes, file I/O",
+                "Numpy basics: arrays, broadcasting, slicing",
+                "Write 3 small CLI Python scripts",
+              ]},
+            ],
+            milestone: "Push your first real project to GitHub with a proper README",
+          },
+          {
+            month: "Month 2",
+            focus: "Math for ML",
+            workload: "Medium",
+            hours: "~14 hrs/week",
+            why: "ML is applied math. Skipping this means you'll memorize without understanding.",
+            tasks: [
+              { cat: "MATH", items: [
+                "Linear algebra: vectors, matrices, dot product, eigenvalues",
+                "Calculus: derivatives, chain rule, partial derivatives",
+                "Probability: Bayes theorem, distributions, expectation",
+                "Statistics: mean/variance, normal dist, correlation",
+              ]},
+              { cat: "TOOLS", items: [
+                "Jupyter Notebooks",
+                "Matplotlib + Seaborn for plotting",
+                "Pandas for data handling",
+              ]},
+            ],
+            milestone: "Implement gradient descent from scratch using only Numpy",
+          },
+          {
+            month: "Month 3",
+            focus: "Classical ML",
+            workload: "Medium",
+            hours: "~14 hrs/week",
+            why: "Classical ML teaches you WHY models work. DL makes more sense after this.",
+            tasks: [
+              { cat: "ML CONCEPTS", items: [
+                "Supervised vs unsupervised learning",
+                "Linear/logistic regression — implement from scratch",
+                "Decision trees, random forests, SVMs",
+                "Overfitting, underfitting, bias-variance tradeoff",
+                "Cross-validation, train/val/test splits",
+                "Scikit-learn: pipelines, model evaluation",
+              ]},
+              { cat: "TOOLS", items: [
+                "Docker basics: pull, run, build a simple container",
+                "Kaggle: join 1 competition (Titanic or similar)",
+              ]},
+            ],
+            milestone: "Complete a full ML pipeline on a Kaggle dataset. Push to GitHub.",
+          },
+        ],
+      },
+      {
+        id: 2,
+        title: "DEEP LEARNING",
+        subtitle: "Months 4–7",
+        color: "#FF6B35",
+        bg: "#1a0f0a",
+        description: "Master neural networks before touching edge deployment. No shortcuts.",
+        months: [
+          {
+            month: "Month 4",
+            focus: "Neural Networks Core",
+            workload: "Medium–High",
+            hours: "~15 hrs/week",
+            why: "You can't compress or optimize what you don't understand.",
+            tasks: [
+              { cat: "DL THEORY", items: [
+                "Perceptrons → multi-layer networks",
+                "Forward pass, backpropagation (derive it manually)",
+                "Activation functions: ReLU, sigmoid, tanh — why each",
+                "Loss functions: MSE, cross-entropy",
+                "Optimizers: SGD, Adam — understand the math",
+              ]},
+              { cat: "FRAMEWORK", items: [
+                "PyTorch: tensors, autograd, nn.Module",
+                "Build a 3-layer net on MNIST from scratch in PyTorch",
+                "TensorFlow + Keras: same MNIST exercise",
+              ]},
+            ],
+            milestone: "Train MNIST classifier in both PyTorch and Keras. Log results with W&B.",
+          },
+          {
+            month: "Month 5",
+            focus: "CNNs & Computer Vision",
+            workload: "High",
+            hours: "~15 hrs/week",
+            why: "CNNs dominate embedded vision — the #1 use case for edge AI.",
+            tasks: [
+              { cat: "ARCHITECTURES", items: [
+                "Conv layers, pooling, feature maps — understand spatially",
+                "LeNet → AlexNet → VGG → ResNet (understand each jump)",
+                "Transfer learning: fine-tune ResNet on custom data",
+                "Data augmentation strategies",
+                "Object detection intro: YOLO concepts",
+              ]},
+              { cat: "TOOLS", items: [
+                "OpenCV: image processing basics",
+                "Weights & Biases (W&B) for experiment tracking",
+                "ONNX: export a PyTorch model to ONNX format",
+              ]},
+            ],
+            milestone: "Fine-tune MobileNetV2 on a custom 5-class dataset. Achieve >85% val accuracy.",
+          },
+          {
+            month: "Month 6",
+            focus: "Sequences, Transformers & Audio",
+            workload: "High",
+            hours: "~15 hrs/week",
+            why: "Embedded audio/NLP is growing fast. Know the theory even if you focus on vision.",
+            tasks: [
+              { cat: "CONCEPTS", items: [
+                "RNNs, LSTMs — understand vanishing gradient",
+                "Attention mechanism — derive scaled dot-product attention",
+                "Transformer architecture overview",
+                "Tiny models for edge: DistilBERT, keyword spotting models",
+              ]},
+              { cat: "AUDIO", items: [
+                "Spectrograms, MFCCs — what they are and why",
+                "Build a keyword spotter (wake word detection) on audio dataset",
+              ]},
+            ],
+            milestone: "Build a keyword spotter that runs in Python. Save as ONNX.",
+          },
+          {
+            month: "Month 7",
+            focus: "Model Optimization — the Bridge",
+            workload: "High",
+            hours: "~16 hrs/week",
+            why: "This is where ML meets embedded. Quantization and pruning are core Embedded AI skills.",
+            tasks: [
+              { cat: "OPTIMIZATION", items: [
+                "Quantization: FP32 → INT8 — why it works, what breaks",
+                "Post-training quantization (PTQ) vs quantization-aware training (QAT)",
+                "Pruning: structured vs unstructured",
+                "Knowledge distillation: teacher → student model",
+                "Benchmark: latency, memory footprint, accuracy drop",
+              ]},
+              { cat: "TOOLS", items: [
+                "TensorFlow Model Optimization Toolkit",
+                "PyTorch quantization API",
+                "Netron: visualize model graphs",
+                "Start reading datasheets: MCU memory specs",
+              ]},
+            ],
+            milestone: "Quantize your Month 5 CNN to INT8. Measure accuracy loss and size reduction. Document it.",
+          },
+        ],
+      },
+      {
+        id: 3,
+        title: "EMBEDDED SYSTEMS",
+        subtitle: "Months 8–11",
+        color: "#A78BFA",
+        bg: "#0f0a1a",
+        description: "C/C++, RTOS, hardware interfaces. The embedded half of the job.",
+        months: [
+          {
+            month: "Month 8",
+            focus: "C/C++ for Embedded",
+            workload: "High",
+            hours: "~16 hrs/week",
+            why: "Embedded firmware is written in C/C++. No way around it.",
+            tasks: [
+              { cat: "C LANGUAGE", items: [
+                "Pointers, memory layout, stack vs heap",
+                "Structs, unions, bit manipulation",
+                "Makefiles and GCC compilation pipeline",
+                "Debugging with GDB",
+                "Memory management: malloc, free, common pitfalls",
+              ]},
+              { cat: "C++ FOR EMBEDDED", items: [
+                "Classes, templates, RAII",
+                "std::array vs raw arrays — when to use what",
+                "Avoid exceptions and dynamic allocation on MCUs — why",
+              ]},
+            ],
+            milestone: "Write a C program that sorts sensor data, uses pointers, and compiles with a Makefile",
+          },
+          {
+            month: "Month 9",
+            focus: "Microcontrollers & Hardware",
+            workload: "High",
+            hours: "~16 hrs/week",
+            why: "You must know the hardware AI runs on.",
+            tasks: [
+              { cat: "HARDWARE", items: [
+                "MCU architecture: CPU, flash, SRAM, peripherals",
+                "GPIO, UART, SPI, I2C — what each does and when to use",
+                "Interrupts, DMA, timers",
+                "Power modes: why they matter for battery-powered edge devices",
+              ]},
+              { cat: "PRACTICE", items: [
+                "Arduino/STM32 or Raspberry Pi Pico: blink LED → UART comms → sensor read",
+                "Read an IMU (accelerometer) via SPI or I2C",
+                "Oscilloscope/logic analyzer basics (use simulation if no hardware)",
+              ]},
+            ],
+            milestone: "Read sensor data on MCU and stream via UART to PC. Log with Python script.",
+          },
+          {
+            month: "Month 10",
+            focus: "RTOS & System Software",
+            workload: "High",
+            hours: "~15 hrs/week",
+            why: "Production embedded systems run RTOS. Bare-metal doesn't scale.",
+            tasks: [
+              { cat: "RTOS", items: [
+                "Tasks, scheduling, priorities in FreeRTOS",
+                "Mutexes, semaphores, queues — when each is right",
+                "Stack overflow detection",
+                "Interrupt service routines with RTOS",
+              ]},
+              { cat: "LINUX EMBEDDED", items: [
+                "Linux kernel basics: device tree, modules",
+                "Cross-compilation: build for ARM on x86",
+                "Yocto Project intro (overview level)",
+                "SSH, scp, rsync for embedded Linux workflows",
+              ]},
+            ],
+            milestone: "FreeRTOS project: 2 tasks, shared queue, mutex-protected UART output",
+          },
+          {
+            month: "Month 11",
+            focus: "Edge AI Deployment",
+            workload: "Very High",
+            hours: "~16 hrs/week",
+            why: "This is the core of the job: getting trained models to run on constrained hardware.",
+            tasks: [
+              { cat: "FRAMEWORKS", items: [
+                "TensorFlow Lite: flatbuffer format, interpreter API",
+                "TFLite Micro (TFLM): run inference on MCU with no OS",
+                "ONNX Runtime for edge",
+                "Edge Impulse: full pipeline from data to MCU deployment",
+              ]},
+              { cat: "HARDWARE ACCELERATORS", items: [
+                "NPU/DSP concepts: CMSIS-NN library",
+                "NVIDIA Jetson: TensorRT basics",
+                "STM32 Cube.AI or similar vendor tool",
+              ]},
+            ],
+            milestone: "Run MobileNetV2 INT8 inference on a physical MCU or Jetson Nano. Measure FPS.",
+          },
+        ],
+      },
+      {
+        id: 4,
+        title: "INTEGRATION & CAREER",
+        subtitle: "Months 12–15",
+        color: "#FBBF24",
+        bg: "#1a150a",
+        description: "Build real systems. Ship projects. Get hired.",
+        months: [
+          {
+            month: "Month 12",
+            focus: "Full Pipeline Project #1",
+            workload: "Very High",
+            hours: "~16 hrs/week",
+            why: "A portfolio project beats any certificate. Make it real.",
+            tasks: [
+              { cat: "PROJECT", items: [
+                "Pick a domain: gesture recognition, anomaly detection, keyword spotting, or predictive maintenance",
+                "Collect or find a dataset",
+                "Train → optimize → quantize → deploy to MCU or edge SBC",
+                "Measure and document: accuracy, latency, power if possible",
+              ]},
+              { cat: "TOOLS", items: [
+                "GitHub Actions: basic CI for your ML code",
+                "MLflow or W&B: log all experiments",
+                "Write a proper README with architecture diagram",
+              ]},
+            ],
+            milestone: "End-to-end system running on hardware. Public GitHub repo. 1-page technical writeup.",
+          },
+          {
+            month: "Month 13",
+            focus: "MLOps & Productionization",
+            workload: "Medium–High",
+            hours: "~14 hrs/week",
+            why: "Companies want engineers who can maintain models, not just train them.",
+            tasks: [
+              { cat: "MLOPS", items: [
+                "Data versioning: DVC",
+                "Model registry concepts",
+                "CI/CD for ML: test models before merging",
+                "Model monitoring: drift detection basics",
+                "Over-the-air (OTA) update concepts for embedded",
+              ]},
+              { cat: "SOFT SKILLS", items: [
+                "Write a technical blog post about your Month 12 project",
+                "Give a 10-min talk (record it) explaining your system",
+              ]},
+            ],
+            milestone: "CI pipeline that trains, tests accuracy, and flags regressions on every commit",
+          },
+          {
+            month: "Month 14",
+            focus: "Specialization & Full Project #2",
+            workload: "Very High",
+            hours: "~16 hrs/week",
+            why: "Pick a lane. Specialization makes you hireable faster.",
+            tasks: [
+              { cat: "PICK ONE LANE", items: [
+                "Vision systems (YOLO on Jetson, object tracking)",
+                "Audio/speech (wake word, voice activity detection)",
+                "Predictive maintenance (vibration + LSTM on STM32)",
+                "Autonomous systems (sensor fusion, ROS2 basics)",
+              ]},
+              { cat: "PROJECT #2", items: [
+                "More complex than Project #1",
+                "Real-world constraint: power budget, or latency target, or tiny RAM",
+                "Document trade-offs you made and why",
+              ]},
+            ],
+            milestone: "Second portfolio project. Write a case study. Post on LinkedIn.",
+          },
+          {
+            month: "Month 15",
+            focus: "Job Search & Interview Prep",
+            workload: "Medium",
+            hours: "~10 hrs/week",
+            why: "Skills don't speak for themselves. You have to package them.",
+            tasks: [
+              { cat: "INTERVIEW PREP", items: [
+                "Systems design: design an edge AI pipeline for X use case",
+                "Coding: LeetCode medium (arrays, trees, graphs — 30 problems)",
+                "ML theory: explain quantization, pruning, backprop out loud",
+                "Embedded: explain interrupt handling, memory layout, DMA",
+              ]},
+              { cat: "JOB SEARCH", items: [
+                "Apply to 5–10 roles/week minimum",
+                "Target: embedded software, ML systems, edge AI, firmware+ML roles",
+                "LinkedIn: post your projects, engage with the community",
+                "Attend or watch TinyML Summit talks for domain knowledge",
+              ]},
+            ],
+            milestone: "Land interviews at 3+ companies",
+          },
+        ],
+      },
+    ];
+
+    const toolsAlways = [
+      { name: "Git + GitHub",       when: "Month 1",  why: "Version control is non-negotiable everywhere" },
+      { name: "Linux CLI",          when: "Month 1",  why: "Most embedded systems run Linux; SSH is daily use" },
+      { name: "Python",             when: "Month 1",  why: "ML glue language, scripting, tooling" },
+      { name: "Docker",             when: "Month 3",  why: "Reproducible builds; most ML infra is containerized" },
+      { name: "C / C++",            when: "Month 8",  why: "Core embedded language, firmware, MCU drivers" },
+      { name: "Makefile / CMake",   when: "Month 8",  why: "Build systems for C/C++ projects" },
+      { name: "GDB",                when: "Month 8",  why: "Debugger for C/C++ — every embedded dev uses this" },
+      { name: "PyTorch",            when: "Month 4",  why: "Industry standard for research and prototyping" },
+      { name: "TensorFlow / Keras", when: "Month 4",  why: "Strong ecosystem for deployment and mobile/edge" },
+      { name: "ONNX",               when: "Month 5",  why: "Model interchange format between frameworks" },
+      { name: "TFLite / TFLM",      when: "Month 11", why: "Deploy models to MCUs and mobile devices" },
+      { name: "Edge Impulse",       when: "Month 11", why: "Full embedded ML pipeline tool, asked in job posts" },
+      { name: "W&B / MLflow",       when: "Month 4",  why: "Experiment tracking — used in every serious ML team" },
+      { name: "Netron",             when: "Month 7",  why: "Visualize and debug model graphs" },
+      { name: "OpenCV",             when: "Month 5",  why: "Image processing in every CV project" },
+      { name: "FreeRTOS",           when: "Month 10", why: "Most popular RTOS for MCUs" },
+      { name: "GitHub Actions",     when: "Month 12", why: "CI/CD — expected in any software role now" },
+    ];
+
+    const workloadColor = (w) => {
+      if (w === "Very High") return "#FF4444";
+      if (w === "High") return "#FF6B35";
+      if (w === "Medium–High") return "#FBBF24";
+      if (w === "Medium") return "#60A5FA";
+      return "#00FF9C";
+    };
+
+    function App() {
+      const [activePhase, setActivePhase] = useState(0);
+      const [activeMonth, setActiveMonth] = useState(null);
+      const [showTools, setShowTools] = useState(false);
+
+      const phase = phases[activePhase];
+
+      // Close open month when switching phases
+      const switchPhase = (i) => {
+        setActivePhase(i);
+        setActiveMonth(null);
+        setShowTools(false);
+      };
+
+      return (
+        <div style={{
+          minHeight: "100vh",
+          background: "#080808",
+          color: "#e8e8e8",
+          fontFamily: "'JetBrains Mono', 'Fira Code', 'Courier New', monospace",
+        }}>
+          {/* Header */}
+          <header style={{
+            borderBottom: "1px solid #1a1a1a",
+            padding: "28px 40px 22px",
+            background: "#0c0c0c",
+            position: "sticky",
+            top: 0,
+            zIndex: 10,
+          }}>
+            <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+              <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#444", marginBottom: "6px" }}>
+                STUDENT TRACK · 15-MONTH PLAN · ~12–16 HRS/WEEK
+              </div>
+              <h1 style={{
+                fontSize: "clamp(18px, 3.5vw, 30px)",
+                fontWeight: "700",
+                letterSpacing: "-0.5px",
+                color: "#fff",
+                margin: 0,
+              }}>
+                Embedded AI Engineer Roadmap
+              </h1>
+            </div>
+          </header>
+
+          {/* Phase nav */}
+          <nav style={{
+            display: "flex",
+            borderBottom: "1px solid #1a1a1a",
+            overflowX: "auto",
+            background: "#0a0a0a",
+            scrollbarWidth: "none",
+          }}>
+            {phases.map((p, i) => (
+              <button
+                key={p.id}
+                onClick={() => switchPhase(i)}
+                style={{
+                  flex: "1",
+                  minWidth: "130px",
+                  padding: "14px 18px",
+                  background: (!showTools && activePhase === i) ? p.bg : "transparent",
+                  border: "none",
+                  borderBottom: (!showTools && activePhase === i)
+                    ? `3px solid ${p.color}`
+                    : "3px solid transparent",
+                  color: (!showTools && activePhase === i) ? p.color : "#444",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "all 0.15s",
+                }}
+              >
+                <div style={{ fontSize: "9px", letterSpacing: "3px", marginBottom: "3px", opacity: 0.7 }}>
+                  {p.subtitle}
+                </div>
+                <div style={{ fontSize: "12px", fontWeight: "700" }}>{p.title}</div>
+              </button>
+            ))}
+            <button
+              onClick={() => { setShowTools(!showTools); setActiveMonth(null); }}
+              style={{
+                minWidth: "110px",
+                padding: "14px 18px",
+                background: showTools ? "#0f0f1a" : "transparent",
+                border: "none",
+                borderBottom: showTools ? "3px solid #60A5FA" : "3px solid transparent",
+                color: showTools ? "#60A5FA" : "#444",
+                cursor: "pointer",
+                textAlign: "left",
+                transition: "all 0.15s",
+              }}
+            >
+              <div style={{ fontSize: "9px", letterSpacing: "3px", marginBottom: "3px", opacity: 0.7 }}>ALWAYS</div>
+              <div style={{ fontSize: "12px", fontWeight: "700" }}>TOOLS</div>
+            </button>
+          </nav>
+
+          <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px 64px" }}>
+
+            {/* Tools panel */}
+            {showTools && (
+              <div className="fade-in">
+                <div style={{
+                  fontSize: "10px",
+                  letterSpacing: "3px",
+                  color: "#60A5FA",
+                  marginBottom: "20px",
+                }}>
+                  TOOLS EVERY EMBEDDED AI JOB ASKS FOR
+                </div>
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                  gap: "10px",
+                }}>
+                  {toolsAlways.map(t => (
+                    <div key={t.name} style={{
+                      background: "#0e0e0e",
+                      border: "1px solid #1a1a2e",
+                      borderRadius: "6px",
+                      padding: "14px 16px",
+                    }}>
+                      <div style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginBottom: "6px",
+                      }}>
+                        <span style={{ color: "#e8e8e8", fontWeight: "600", fontSize: "13px" }}>{t.name}</span>
+                        <span style={{
+                          fontSize: "9px",
+                          background: "#1a1a3a",
+                          color: "#60A5FA",
+                          padding: "2px 8px",
+                          borderRadius: "3px",
+                          letterSpacing: "1px",
+                          whiteSpace: "nowrap",
+                          marginLeft: "8px",
+                        }}>{t.when}</span>
+                      </div>
+                      <div style={{ fontSize: "11px", color: "#555", lineHeight: "1.5" }}>{t.why}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Phase content */}
+            {!showTools && (
+              <div className="fade-in">
+                {/* Phase header */}
+                <div style={{
+                  background: phase.bg,
+                  border: `1px solid ${phase.color}22`,
+                  borderLeft: `4px solid ${phase.color}`,
+                  borderRadius: "6px",
+                  padding: "18px 22px",
+                  marginBottom: "24px",
+                }}>
+                  <div style={{
+                    color: phase.color,
+                    fontSize: "10px",
+                    letterSpacing: "3px",
+                    marginBottom: "6px",
+                  }}>
+                    PHASE {phase.id} · {phase.subtitle}
+                  </div>
+                  <div style={{ color: "#ccc", fontSize: "14px", lineHeight: "1.6" }}>
+                    {phase.description}
+                  </div>
+                </div>
+
+                {/* Month cards */}
+                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                  {phase.months.map((m, i) => {
+                    const isOpen = activeMonth === i;
+                    return (
+                      <div key={m.month} style={{
+                        background: "#0e0e0e",
+                        border: `1px solid ${isOpen ? phase.color + "55" : "#1a1a1a"}`,
+                        borderRadius: "6px",
+                        overflow: "hidden",
+                        transition: "border-color 0.15s",
+                      }}>
+                        {/* Month header / toggle */}
+                        <button
+                          onClick={() => setActiveMonth(isOpen ? null : i)}
+                          style={{
+                            width: "100%",
+                            padding: "16px 20px",
+                            background: isOpen ? phase.bg + "88" : "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            textAlign: "left",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "14px",
+                            transition: "background 0.15s",
+                          }}
+                        >
+                          <span style={{
+                            color: phase.color,
+                            fontSize: "10px",
+                            letterSpacing: "2px",
+                            minWidth: "72px",
+                            opacity: 0.8,
+                          }}>{m.month}</span>
+
+                          <span style={{
+                            color: "#fff",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            flex: 1,
+                          }}>{m.focus}</span>
+
+                          <span style={{
+                            fontSize: "9px",
+                            color: workloadColor(m.workload),
+                            background: "#111",
+                            padding: "2px 8px",
+                            borderRadius: "3px",
+                            border: `1px solid ${workloadColor(m.workload)}33`,
+                            whiteSpace: "nowrap",
+                            display: "none",
+                          }}
+                            className="workload-badge"
+                          >{m.workload}</span>
+
+                          <span style={{
+                            fontSize: "10px",
+                            color: "#444",
+                            whiteSpace: "nowrap",
+                          }}>{m.hours}</span>
+
+                          <span style={{
+                            color: isOpen ? phase.color : "#444",
+                            fontSize: "16px",
+                            fontWeight: "300",
+                            transition: "color 0.15s",
+                            marginLeft: "4px",
+                          }}>
+                            {isOpen ? "−" : "+"}
+                          </span>
+                        </button>
+
+                        {/* Expanded content */}
+                        {isOpen && (
+                          <div
+                            className="fade-in"
+                            style={{ padding: "0 20px 20px", borderTop: `1px solid #1a1a1a` }}
+                          >
+                            {/* Why */}
+                            <div style={{
+                              background: "#0a0a0a",
+                              borderLeft: `3px solid ${phase.color}`,
+                              padding: "11px 14px",
+                              margin: "16px 0",
+                              fontSize: "12px",
+                              color: "#888",
+                              fontStyle: "italic",
+                              lineHeight: "1.6",
+                            }}>
+                              <span style={{ color: phase.color, fontStyle: "normal", fontSize: "9px", letterSpacing: "2px" }}>
+                                WHY THIS MONTH
+                              </span>
+                              <br />
+                              {m.why}
+                            </div>
+
+                            {/* Task categories */}
+                            <div style={{
+                              display: "grid",
+                              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                              gap: "20px",
+                              marginBottom: "16px",
+                            }}>
+                              {m.tasks.map(cat => (
+                                <div key={cat.cat}>
+                                  <div style={{
+                                    fontSize: "9px",
+                                    letterSpacing: "3px",
+                                    color: phase.color,
+                                    marginBottom: "10px",
+                                    paddingBottom: "6px",
+                                    borderBottom: `1px solid ${phase.color}22`,
+                                  }}>{cat.cat}</div>
+                                  <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                    {cat.items.map(item => (
+                                      <li key={item} style={{
+                                        fontSize: "12px",
+                                        color: "#aaa",
+                                        padding: "5px 0",
+                                        borderBottom: "1px solid #141414",
+                                        display: "flex",
+                                        gap: "8px",
+                                        alignItems: "flex-start",
+                                        lineHeight: "1.5",
+                                      }}>
+                                        <span style={{
+                                          color: phase.color,
+                                          marginTop: "2px",
+                                          flexShrink: 0,
+                                          opacity: 0.7,
+                                        }}>›</span>
+                                        {item}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                            </div>
+
+                            {/* Milestone */}
+                            <div style={{
+                              background: phase.bg,
+                              border: `1px solid ${phase.color}33`,
+                              borderRadius: "5px",
+                              padding: "12px 16px",
+                              display: "flex",
+                              gap: "12px",
+                              alignItems: "flex-start",
+                            }}>
+                              <span style={{
+                                color: phase.color,
+                                fontSize: "9px",
+                                letterSpacing: "2px",
+                                flexShrink: 0,
+                                paddingTop: "2px",
+                              }}>✓ MILESTONE</span>
+                              <span style={{ fontSize: "12px", color: "#ccc", lineHeight: "1.6" }}>
+                                {m.milestone}
+                              </span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </main>
+
+          {/* Footer */}
+          <footer style={{
+            padding: "20px 24px",
+            borderTop: "1px solid #111",
+            background: "#0a0a0a",
+          }}>
+            <div style={{
+              maxWidth: "1200px",
+              margin: "0 auto",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "20px",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", fontSize: "11px", color: "#444" }}>
+                <div>
+                  <span style={{ color: "#555" }}>HARDWARE</span>
+                  &nbsp; STM32 Nucleo or Arduino Nano 33 BLE Sense (~$30) · optional Jetson Nano
+                </div>
+                <div>
+                  <span style={{ color: "#555" }}>NOTE</span>
+                  &nbsp; Slow down during exams. Don't skip milestones.
+                </div>
+              </div>
+              <a
+                href="https://github.com/Mgzhnn/Embedded-AI-Engineer-Role-Roadmap"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: "11px",
+                  color: "#444",
+                  textDecoration: "none",
+                  letterSpacing: "1px",
+                  transition: "color 0.15s",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                }}
+                onMouseEnter={e => e.target.style.color = "#888"}
+                onMouseLeave={e => e.target.style.color = "#444"}
+              >
+                VIEW ON GITHUB ↗
+              </a>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>
