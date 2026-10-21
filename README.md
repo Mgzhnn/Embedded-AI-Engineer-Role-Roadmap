@@ -1,3 +1,4 @@
+<!-- Roadmap content lives in this README. After editing it, run: python3 scripts/sync_site.py (rebuilds index.html) -->
 <div align="center">
 
 # Embedded AI Engineer Roadmap
@@ -120,6 +121,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 
 **Frameworks**
 - PyTorch — tensors, autograd, nn.Module
+- Build a 3-layer net on MNIST from scratch in PyTorch
 - TensorFlow + Keras — same exercises in both
 - Weights & Biases (W&B) — experiment tracking from day one
 

@@ -29,403 +29,544 @@
 </head>
 <body>
   <div id="root"></div>
+  <noscript>
+    <p style="padding: 24px; color: #cccccc;">This page needs JavaScript. The full roadmap is also in the
+      <a href="https://github.com/Mgzhnn/Embedded-AI-Engineer-Role-Roadmap#readme" style="color: #00FF9C;">README on GitHub</a>.</p>
+  </noscript>
 
   <script type="text/babel">
     const { useState, useEffect } = React;
 
+    // BEGIN GENERATED FROM README.md (python3 scripts/sync_site.py); do not edit by hand
     const phases = [
       {
-        id: 1,
-        title: "FOUNDATION",
-        subtitle: "Months 1–3",
-        color: "#00FF9C",
-        bg: "#0a1a0f",
-        description: "Tools + Math + Programming basics. Everything else builds on this.",
-        months: [
+        "id": 1,
+        "title": "FOUNDATION",
+        "subtitle": "Months 1–3",
+        "color": "#00FF9C",
+        "bg": "#0a1a0f",
+        "description": "Tools + Math + Classical ML. Everything else builds on this.",
+        "months": [
           {
-            month: "Month 1",
-            focus: "Linux, Git & Python",
-            workload: "Low–Medium",
-            hours: "~12 hrs/week",
-            why: "Every job post lists these. Learn them now so they become muscle memory.",
-            tasks: [
-              { cat: "TOOLS", items: [
-                "Linux CLI: navigate, chmod, SSH, bash scripting basics",
-                "Git: init, clone, commit, branch, merge, pull requests",
-                "GitHub: repos, README, issues, forks",
-                "VSCode setup, extensions, keyboard shortcuts",
-                "Conda / venv for Python environments",
-              ]},
-              { cat: "CODE", items: [
-                "Python: data types, loops, functions, classes, file I/O",
-                "Numpy basics: arrays, broadcasting, slicing",
-                "Write 3 small CLI Python scripts",
-              ]},
+            "month": "Month 1",
+            "focus": "Linux, Git & Python",
+            "hours": "~12 hrs/week",
+            "why": "Git, Linux, and Python appear in every single job post. Learn them now so they become automatic.",
+            "tasks": [
+              {
+                "cat": "TOOLS",
+                "items": [
+                  "Linux CLI — navigate, chmod, SSH, bash scripting basics",
+                  "Git — init, clone, commit, branch, merge, pull requests",
+                  "GitHub — repos, README, issues, forks",
+                  "VSCode — setup, extensions, keyboard shortcuts",
+                  "Conda / venv — Python environment management"
+                ]
+              },
+              {
+                "cat": "CODE",
+                "items": [
+                  "Python — data types, loops, functions, classes, file I/O",
+                  "Numpy basics — arrays, broadcasting, slicing",
+                  "Write 3 small CLI Python scripts from scratch"
+                ]
+              }
             ],
-            milestone: "Push your first real project to GitHub with a proper README",
+            "milestone": "Push a real project to GitHub with a proper README."
           },
           {
-            month: "Month 2",
-            focus: "Math for ML",
-            workload: "Medium",
-            hours: "~14 hrs/week",
-            why: "ML is applied math. Skipping this means you'll memorize without understanding.",
-            tasks: [
-              { cat: "MATH", items: [
-                "Linear algebra: vectors, matrices, dot product, eigenvalues",
-                "Calculus: derivatives, chain rule, partial derivatives",
-                "Probability: Bayes theorem, distributions, expectation",
-                "Statistics: mean/variance, normal dist, correlation",
-              ]},
-              { cat: "TOOLS", items: [
-                "Jupyter Notebooks",
-                "Matplotlib + Seaborn for plotting",
-                "Pandas for data handling",
-              ]},
+            "month": "Month 2",
+            "focus": "Math for ML",
+            "hours": "~14 hrs/week",
+            "why": "ML is applied math. Skipping this means memorizing without understanding.",
+            "tasks": [
+              {
+                "cat": "MATH",
+                "items": [
+                  "Linear algebra — vectors, matrices, dot product, eigenvalues",
+                  "Calculus — derivatives, chain rule, partial derivatives",
+                  "Probability — Bayes theorem, distributions, expectation",
+                  "Statistics — mean/variance, normal distribution, correlation"
+                ]
+              },
+              {
+                "cat": "TOOLS",
+                "items": [
+                  "Jupyter Notebooks",
+                  "Matplotlib + Seaborn for plotting",
+                  "Pandas for data handling"
+                ]
+              }
             ],
-            milestone: "Implement gradient descent from scratch using only Numpy",
+            "milestone": "Implement gradient descent from scratch using only Numpy."
           },
           {
-            month: "Month 3",
-            focus: "Classical ML",
-            workload: "Medium",
-            hours: "~14 hrs/week",
-            why: "Classical ML teaches you WHY models work. DL makes more sense after this.",
-            tasks: [
-              { cat: "ML CONCEPTS", items: [
-                "Supervised vs unsupervised learning",
-                "Linear/logistic regression — implement from scratch",
-                "Decision trees, random forests, SVMs",
-                "Overfitting, underfitting, bias-variance tradeoff",
-                "Cross-validation, train/val/test splits",
-                "Scikit-learn: pipelines, model evaluation",
-              ]},
-              { cat: "TOOLS", items: [
-                "Docker basics: pull, run, build a simple container",
-                "Kaggle: join 1 competition (Titanic or similar)",
-              ]},
+            "month": "Month 3",
+            "focus": "Classical ML",
+            "hours": "~14 hrs/week",
+            "why": "Classical ML teaches you why models work. Deep learning makes more sense after this.",
+            "tasks": [
+              {
+                "cat": "CONCEPTS",
+                "items": [
+                  "Supervised vs unsupervised learning",
+                  "Linear/logistic regression — implement from scratch",
+                  "Decision trees, random forests, SVMs",
+                  "Overfitting, underfitting, bias-variance tradeoff",
+                  "Cross-validation, train/val/test splits",
+                  "Scikit-learn — pipelines, model evaluation"
+                ]
+              },
+              {
+                "cat": "TOOLS",
+                "items": [
+                  "Docker basics — pull, run, build a simple container",
+                  "Kaggle — join 1 beginner competition (Titanic or similar)"
+                ]
+              }
             ],
-            milestone: "Complete a full ML pipeline on a Kaggle dataset. Push to GitHub.",
-          },
-        ],
+            "milestone": "Complete a full ML pipeline on a Kaggle dataset. Push to GitHub."
+          }
+        ]
       },
       {
-        id: 2,
-        title: "DEEP LEARNING",
-        subtitle: "Months 4–7",
-        color: "#FF6B35",
-        bg: "#1a0f0a",
-        description: "Master neural networks before touching edge deployment. No shortcuts.",
-        months: [
+        "id": 2,
+        "title": "DEEP LEARNING",
+        "subtitle": "Months 4–7",
+        "color": "#FF6B35",
+        "bg": "#1a0f0a",
+        "description": "Neural networks, then optimization. Master this before touching edge hardware.",
+        "months": [
           {
-            month: "Month 4",
-            focus: "Neural Networks Core",
-            workload: "Medium–High",
-            hours: "~15 hrs/week",
-            why: "You can't compress or optimize what you don't understand.",
-            tasks: [
-              { cat: "DL THEORY", items: [
-                "Perceptrons → multi-layer networks",
-                "Forward pass, backpropagation (derive it manually)",
-                "Activation functions: ReLU, sigmoid, tanh — why each",
-                "Loss functions: MSE, cross-entropy",
-                "Optimizers: SGD, Adam — understand the math",
-              ]},
-              { cat: "FRAMEWORK", items: [
-                "PyTorch: tensors, autograd, nn.Module",
-                "Build a 3-layer net on MNIST from scratch in PyTorch",
-                "TensorFlow + Keras: same MNIST exercise",
-              ]},
+            "month": "Month 4",
+            "focus": "Neural Networks Core",
+            "hours": "~15 hrs/week",
+            "why": "You can't compress or optimize what you don't understand.",
+            "tasks": [
+              {
+                "cat": "THEORY",
+                "items": [
+                  "Perceptrons → multi-layer networks",
+                  "Forward pass, backpropagation — derive it manually",
+                  "Activation functions — ReLU, sigmoid, tanh and why each exists",
+                  "Loss functions — MSE, cross-entropy",
+                  "Optimizers — SGD, Adam — understand the math"
+                ]
+              },
+              {
+                "cat": "FRAMEWORKS",
+                "items": [
+                  "PyTorch — tensors, autograd, nn.Module",
+                  "Build a 3-layer net on MNIST from scratch in PyTorch",
+                  "TensorFlow + Keras — same exercises in both",
+                  "Weights & Biases (W&B) — experiment tracking from day one"
+                ]
+              }
             ],
-            milestone: "Train MNIST classifier in both PyTorch and Keras. Log results with W&B.",
+            "milestone": "Train MNIST classifier in both PyTorch and Keras. Log results with W&B."
           },
           {
-            month: "Month 5",
-            focus: "CNNs & Computer Vision",
-            workload: "High",
-            hours: "~15 hrs/week",
-            why: "CNNs dominate embedded vision — the #1 use case for edge AI.",
-            tasks: [
-              { cat: "ARCHITECTURES", items: [
-                "Conv layers, pooling, feature maps — understand spatially",
-                "LeNet → AlexNet → VGG → ResNet (understand each jump)",
-                "Transfer learning: fine-tune ResNet on custom data",
-                "Data augmentation strategies",
-                "Object detection intro: YOLO concepts",
-              ]},
-              { cat: "TOOLS", items: [
-                "OpenCV: image processing basics",
-                "Weights & Biases (W&B) for experiment tracking",
-                "ONNX: export a PyTorch model to ONNX format",
-              ]},
+            "month": "Month 5",
+            "focus": "CNNs & Computer Vision",
+            "hours": "~15 hrs/week",
+            "why": "CNNs dominate embedded vision — the #1 use case for edge AI.",
+            "tasks": [
+              {
+                "cat": "ARCHITECTURES",
+                "items": [
+                  "Conv layers, pooling, feature maps — understand spatially",
+                  "LeNet → AlexNet → VGG → ResNet — understand each improvement",
+                  "Transfer learning — fine-tune ResNet on custom data",
+                  "Data augmentation strategies",
+                  "Object detection intro — YOLO concepts"
+                ]
+              },
+              {
+                "cat": "TOOLS",
+                "items": [
+                  "OpenCV — image processing basics",
+                  "ONNX — export a PyTorch model to ONNX format"
+                ]
+              }
             ],
-            milestone: "Fine-tune MobileNetV2 on a custom 5-class dataset. Achieve >85% val accuracy.",
+            "milestone": "Fine-tune MobileNetV2 on a custom 5-class dataset. Achieve >85% val accuracy."
           },
           {
-            month: "Month 6",
-            focus: "Sequences, Transformers & Audio",
-            workload: "High",
-            hours: "~15 hrs/week",
-            why: "Embedded audio/NLP is growing fast. Know the theory even if you focus on vision.",
-            tasks: [
-              { cat: "CONCEPTS", items: [
-                "RNNs, LSTMs — understand vanishing gradient",
-                "Attention mechanism — derive scaled dot-product attention",
-                "Transformer architecture overview",
-                "Small models for edge: keyword-spotting CNNs for MCUs; DistilBERT-class models for edge boards like Jetson",
-              ]},
-              { cat: "AUDIO", items: [
-                "Spectrograms, MFCCs — what they are and why",
-                "Build a keyword spotter (wake word detection) on audio dataset",
-              ]},
+            "month": "Month 6",
+            "focus": "Sequences, Transformers & Audio",
+            "hours": "~15 hrs/week",
+            "why": "Embedded audio/NLP is growing. Know the theory even if you specialize in vision.",
+            "tasks": [
+              {
+                "cat": "CONCEPTS",
+                "items": [
+                  "RNNs, LSTMs — understand the vanishing gradient problem",
+                  "Attention mechanism — derive scaled dot-product attention",
+                  "Transformer architecture overview",
+                  "Small models for edge — keyword-spotting CNNs for MCUs; DistilBERT-class models for edge boards like Jetson"
+                ]
+              },
+              {
+                "cat": "AUDIO",
+                "items": [
+                  "Spectrograms, MFCCs — what they are and why they work",
+                  "Build a keyword spotter (wake word detection) on an audio dataset"
+                ]
+              }
             ],
-            milestone: "Build a keyword spotter that runs in Python. Save as ONNX.",
+            "milestone": "Build a keyword spotter in Python. Export as ONNX."
           },
           {
-            month: "Month 7",
-            focus: "Model Optimization — the Bridge",
-            workload: "High",
-            hours: "~16 hrs/week",
-            why: "This is where ML meets embedded. Quantization and pruning are core Embedded AI skills.",
-            tasks: [
-              { cat: "OPTIMIZATION", items: [
-                "Quantization: FP32 → INT8 — why it works, what breaks",
-                "Post-training quantization (PTQ) vs quantization-aware training (QAT)",
-                "Pruning: structured vs unstructured",
-                "Knowledge distillation: teacher → student model",
-                "Benchmark: latency, memory footprint, accuracy drop",
-              ]},
-              { cat: "TOOLS", items: [
-                "TensorFlow Model Optimization Toolkit",
-                "PyTorch quantization: torchao (successor to torch.ao.quantization)",
-                "Netron: visualize model graphs",
-                "Start reading datasheets: MCU memory specs",
-              ]},
+            "month": "Month 7",
+            "focus": "Model Optimization (the Bridge)",
+            "hours": "~16 hrs/week",
+            "why": "This is where ML meets embedded. Quantization and pruning are core Embedded AI skills.",
+            "tasks": [
+              {
+                "cat": "OPTIMIZATION",
+                "items": [
+                  "Quantization — FP32 → INT8, why it works, what breaks",
+                  "Post-training quantization (PTQ) vs quantization-aware training (QAT)",
+                  "Pruning — structured vs unstructured",
+                  "Knowledge distillation — teacher → student model",
+                  "Benchmark — latency, memory footprint, accuracy trade-off"
+                ]
+              },
+              {
+                "cat": "TOOLS",
+                "items": [
+                  "TensorFlow Model Optimization Toolkit",
+                  "PyTorch quantization — torchao (successor to torch.ao.quantization)",
+                  "Netron — visualize and debug model graphs",
+                  "Start reading MCU datasheets — understand memory specs"
+                ]
+              }
             ],
-            milestone: "Quantize your Month 5 CNN to INT8. Measure accuracy loss and size reduction. Document it.",
-          },
-        ],
+            "milestone": "Quantize your Month 5 CNN to INT8. Measure accuracy loss and size reduction. Document it."
+          }
+        ]
       },
       {
-        id: 3,
-        title: "EMBEDDED SYSTEMS",
-        subtitle: "Months 8–11",
-        color: "#A78BFA",
-        bg: "#0f0a1a",
-        description: "C/C++, RTOS, hardware interfaces. The embedded half of the job.",
-        months: [
+        "id": 3,
+        "title": "EMBEDDED SYSTEMS",
+        "subtitle": "Months 8–11",
+        "color": "#A78BFA",
+        "bg": "#0f0a1a",
+        "description": "C/C++, RTOS, hardware interfaces. The embedded half of the job title.",
+        "months": [
           {
-            month: "Month 8",
-            focus: "C/C++ for Embedded",
-            workload: "High",
-            hours: "~16 hrs/week",
-            why: "Embedded firmware is written in C/C++. No way around it.",
-            tasks: [
-              { cat: "C LANGUAGE", items: [
-                "Pointers, memory layout, stack vs heap",
-                "Structs, unions, bit manipulation",
-                "Makefiles and GCC compilation pipeline",
-                "Debugging with GDB",
-                "Memory management: malloc, free, common pitfalls",
-              ]},
-              { cat: "C++ FOR EMBEDDED", items: [
-                "Classes, templates, RAII",
-                "std::array vs raw arrays — when to use what",
-                "Avoid exceptions and dynamic allocation on MCUs — why",
-              ]},
+            "month": "Month 8",
+            "focus": "C/C++ for Embedded",
+            "hours": "~16 hrs/week",
+            "why": "Embedded firmware is written in C/C++. No way around it.",
+            "tasks": [
+              {
+                "cat": "C",
+                "items": [
+                  "Pointers, memory layout, stack vs heap",
+                  "Structs, unions, bit manipulation",
+                  "Makefiles and GCC compilation pipeline",
+                  "Debugging with GDB",
+                  "Memory management — malloc, free, common pitfalls"
+                ]
+              },
+              {
+                "cat": "C++ FOR EMBEDDED",
+                "items": [
+                  "Classes, templates, RAII",
+                  "std::array vs raw arrays — when to use which",
+                  "Why to avoid exceptions and dynamic allocation on MCUs"
+                ]
+              }
             ],
-            milestone: "Write a C program that sorts sensor data, uses pointers, and compiles with a Makefile",
+            "milestone": "Write a C program that sorts sensor data, uses pointers, and compiles with a Makefile."
           },
           {
-            month: "Month 9",
-            focus: "Microcontrollers & Hardware",
-            workload: "High",
-            hours: "~16 hrs/week",
-            why: "You must know the hardware AI runs on.",
-            tasks: [
-              { cat: "HARDWARE", items: [
-                "MCU architecture: CPU, flash, SRAM, peripherals",
-                "GPIO, UART, SPI, I2C — what each does and when to use",
-                "Interrupts, DMA, timers",
-                "Power modes: why they matter for battery-powered edge devices",
-              ]},
-              { cat: "PRACTICE", items: [
-                "Arduino/STM32 or Raspberry Pi Pico: blink LED → UART comms → sensor read",
-                "Read an IMU (accelerometer) via SPI or I2C",
-                "Oscilloscope/logic analyzer basics (use simulation if no hardware)",
-              ]},
+            "month": "Month 9",
+            "focus": "Microcontrollers & Hardware",
+            "hours": "~16 hrs/week",
+            "why": "You must understand the hardware the AI runs on.",
+            "tasks": [
+              {
+                "cat": "HARDWARE",
+                "items": [
+                  "MCU architecture — CPU, flash, SRAM, peripherals",
+                  "GPIO, UART, SPI, I2C — what each does and when to use it",
+                  "Interrupts, DMA, timers",
+                  "Power modes — why they matter for battery-powered edge devices"
+                ]
+              },
+              {
+                "cat": "PRACTICE",
+                "items": [
+                  "Arduino Nano 33 BLE Sense or STM32 Nucleo — blink LED → UART comms → sensor read",
+                  "Read an IMU (accelerometer) via SPI or I2C",
+                  "Oscilloscope/logic analyzer basics — use simulation if no hardware"
+                ]
+              }
             ],
-            milestone: "Read sensor data on MCU and stream via UART to PC. Log with Python script.",
+            "milestone": "Read sensor data on MCU and stream via UART to PC. Log with a Python script."
           },
           {
-            month: "Month 10",
-            focus: "RTOS & System Software",
-            workload: "High",
-            hours: "~15 hrs/week",
-            why: "Once a device juggles several concurrent jobs, an RTOS keeps it manageable; many production devices use one.",
-            tasks: [
-              { cat: "RTOS", items: [
-                "Tasks, scheduling, priorities in FreeRTOS",
-                "Mutexes, semaphores, queues — when each is right",
-                "Stack overflow detection",
-                "Interrupt service routines with RTOS",
-              ]},
-              { cat: "LINUX EMBEDDED", items: [
-                "Linux kernel basics: device tree, modules",
-                "Cross-compilation: build for ARM on x86",
-                "Yocto Project intro (overview level)",
-                "SSH, scp, rsync for embedded Linux workflows",
-              ]},
+            "month": "Month 10",
+            "focus": "RTOS & System Software",
+            "hours": "~15 hrs/week",
+            "why": "Once a device juggles several concurrent jobs, an RTOS keeps it manageable; many production devices use one.",
+            "tasks": [
+              {
+                "cat": "RTOS",
+                "items": [
+                  "Tasks, scheduling, priorities in FreeRTOS",
+                  "Mutexes, semaphores, queues — when each is right",
+                  "Stack overflow detection",
+                  "Interrupt service routines with RTOS"
+                ]
+              },
+              {
+                "cat": "EMBEDDED LINUX",
+                "items": [
+                  "Linux kernel basics — device tree, modules",
+                  "Cross-compilation — build for ARM on x86",
+                  "Yocto Project intro (overview level)",
+                  "SSH, scp, rsync for embedded Linux workflows"
+                ]
+              }
             ],
-            milestone: "FreeRTOS project: 2 tasks, shared queue, mutex-protected UART output",
+            "milestone": "FreeRTOS project — 2 tasks, shared queue, mutex-protected UART output."
           },
           {
-            month: "Month 11",
-            focus: "Edge AI Deployment",
-            workload: "Very High",
-            hours: "~16 hrs/week",
-            why: "This is the core of the job: getting trained models to run on constrained hardware.",
-            tasks: [
-              { cat: "FRAMEWORKS", items: [
-                "LiteRT (formerly TensorFlow Lite): flatbuffer format, interpreter API",
-                "TFLite Micro (TFLM): run inference on MCU with no OS",
-                "ONNX Runtime for edge",
-                "Edge Impulse: full pipeline from data to MCU deployment",
-              ]},
-              { cat: "HARDWARE ACCELERATORS", items: [
-                "NPU/DSP concepts: CMSIS-NN library",
-                "NVIDIA Jetson: TensorRT basics",
-                "STM32 Cube.AI or similar vendor tool",
-              ]},
+            "month": "Month 11",
+            "focus": "Edge AI Deployment",
+            "hours": "~16 hrs/week",
+            "why": "Getting trained models onto constrained hardware is the core of the job.",
+            "tasks": [
+              {
+                "cat": "FRAMEWORKS",
+                "items": [
+                  "LiteRT (formerly TensorFlow Lite) — flatbuffer format, interpreter API",
+                  "TFLite Micro (TFLM) — inference on MCU with no OS",
+                  "ONNX Runtime for edge",
+                  "Edge Impulse — full pipeline from data to MCU"
+                ]
+              },
+              {
+                "cat": "HARDWARE ACCELERATORS",
+                "items": [
+                  "NPU/DSP concepts — CMSIS-NN library",
+                  "NVIDIA Jetson — TensorRT basics",
+                  "STM32 Cube.AI or equivalent vendor tool"
+                ]
+              }
             ],
-            milestone: "Run an INT8 image classifier on a physical MCU (a model sized to fit its flash and RAM, e.g. a small-width MobileNet at 96×96) or full MobileNetV2 on a Jetson. Measure FPS.",
-          },
-        ],
+            "milestone": "Run an INT8 image classifier on a physical MCU (a model sized to fit its flash and RAM, e.g. a small-width MobileNet at 96×96) or full MobileNetV2 on a Jetson. Measure FPS."
+          }
+        ]
       },
       {
-        id: 4,
-        title: "INTEGRATION & CAREER",
-        subtitle: "Months 12–15",
-        color: "#FBBF24",
-        bg: "#1a150a",
-        description: "Build real systems. Ship projects. Get hired.",
-        months: [
+        "id": 4,
+        "title": "INTEGRATION & CAREER",
+        "subtitle": "Months 12–15",
+        "color": "#FBBF24",
+        "bg": "#1a150a",
+        "description": "Build real systems. Ship projects. Get hired.",
+        "months": [
           {
-            month: "Month 12",
-            focus: "Full Pipeline Project #1",
-            workload: "Very High",
-            hours: "~16 hrs/week",
-            why: "A portfolio project beats any certificate. Make it real.",
-            tasks: [
-              { cat: "PROJECT", items: [
-                "Pick a domain: gesture recognition, anomaly detection, keyword spotting, or predictive maintenance",
-                "Collect or find a dataset",
-                "Train → optimize → quantize → deploy to MCU or edge SBC",
-                "Measure and document: accuracy, latency, power if possible",
-              ]},
-              { cat: "TOOLS", items: [
-                "GitHub Actions: basic CI for your ML code",
-                "MLflow or W&B: log all experiments",
-                "Write a proper README with architecture diagram",
-              ]},
+            "month": "Month 12",
+            "focus": "Full Pipeline Project #1",
+            "hours": "~16 hrs/week",
+            "why": "A portfolio project beats any certificate.",
+            "tasks": [
+              {
+                "cat": "PROJECT",
+                "items": [
+                  "Pick a domain — gesture recognition, anomaly detection, keyword spotting, or predictive maintenance",
+                  "Collect or find a real dataset",
+                  "Train → optimize → quantize → deploy to MCU or edge SBC",
+                  "Measure and document — accuracy, latency, power if possible"
+                ]
+              },
+              {
+                "cat": "TOOLS",
+                "items": [
+                  "GitHub Actions — basic CI for your ML code",
+                  "MLflow or W&B — log all experiments",
+                  "Write a proper README with an architecture diagram"
+                ]
+              }
             ],
-            milestone: "End-to-end system running on hardware. Public GitHub repo. 1-page technical writeup.",
+            "milestone": "End-to-end system running on hardware. Public GitHub repo. 1-page technical writeup."
           },
           {
-            month: "Month 13",
-            focus: "MLOps & Productionization",
-            workload: "Medium–High",
-            hours: "~14 hrs/week",
-            why: "Companies want engineers who can maintain models, not just train them.",
-            tasks: [
-              { cat: "MLOPS", items: [
-                "Data versioning: DVC",
-                "Model registry concepts",
-                "CI/CD for ML: test models before merging",
-                "Model monitoring: drift detection basics",
-                "Over-the-air (OTA) update concepts for embedded",
-              ]},
-              { cat: "SOFT SKILLS", items: [
-                "Write a technical blog post about your Month 12 project",
-                "Give a 10-min talk (record it) explaining your system",
-              ]},
+            "month": "Month 13",
+            "focus": "MLOps & Productionization",
+            "hours": "~14 hrs/week",
+            "why": "Companies want engineers who can maintain models, not just train them.",
+            "tasks": [
+              {
+                "cat": "MLOPS",
+                "items": [
+                  "Data versioning — DVC",
+                  "Model registry concepts",
+                  "CI/CD for ML — test models before merging",
+                  "Model monitoring — drift detection basics",
+                  "OTA update concepts for embedded"
+                ]
+              },
+              {
+                "cat": "SOFT SKILLS",
+                "items": [
+                  "Write a technical blog post about your Month 12 project",
+                  "Record a 10-minute talk explaining your system"
+                ]
+              }
             ],
-            milestone: "CI pipeline that trains, tests accuracy, and flags regressions on every commit",
+            "milestone": "CI pipeline that trains, tests accuracy, and flags regressions on every commit."
           },
           {
-            month: "Month 14",
-            focus: "Specialization & Full Project #2",
-            workload: "Very High",
-            hours: "~16 hrs/week",
-            why: "Pick a lane. Specialization makes you hireable faster.",
-            tasks: [
-              { cat: "PICK ONE LANE", items: [
-                "Vision systems (YOLO on Jetson, object tracking)",
-                "Audio/speech (wake word, voice activity detection)",
-                "Predictive maintenance (vibration + LSTM on STM32)",
-                "Autonomous systems (sensor fusion, ROS2 basics)",
-              ]},
-              { cat: "PROJECT #2", items: [
-                "More complex than Project #1",
-                "Real-world constraint: power budget, or latency target, or tiny RAM",
-                "Document trade-offs you made and why",
-              ]},
+            "month": "Month 14",
+            "focus": "Specialization & Project #2",
+            "hours": "~16 hrs/week",
+            "why": "Specialization makes you hireable faster.",
+            "tasks": [
+              {
+                "cat": "PICK ONE LANE",
+                "items": [
+                  "Vision systems — YOLO on Jetson, object tracking",
+                  "Audio/speech — wake word, voice activity detection",
+                  "Predictive maintenance — vibration + LSTM on STM32",
+                  "Autonomous systems — sensor fusion, ROS2 basics"
+                ]
+              },
+              {
+                "cat": "PROJECT #2",
+                "items": [
+                  "More complex than Project #1",
+                  "Real-world constraint — power budget, latency target, or tiny RAM",
+                  "Document trade-offs made and why"
+                ]
+              }
             ],
-            milestone: "Second portfolio project. Write a case study. Post on LinkedIn.",
+            "milestone": "Second portfolio project. Write a case study. Post on LinkedIn."
           },
           {
-            month: "Month 15",
-            focus: "Job Search & Interview Prep",
-            workload: "Medium",
-            hours: "~10 hrs/week",
-            why: "Skills don't speak for themselves. You have to package them.",
-            tasks: [
-              { cat: "INTERVIEW PREP", items: [
-                "Systems design: design an edge AI pipeline for X use case",
-                "Coding: LeetCode medium (arrays, trees, graphs — 30 problems)",
-                "ML theory: explain quantization, pruning, backprop out loud",
-                "Embedded: explain interrupt handling, memory layout, DMA",
-              ]},
-              { cat: "JOB SEARCH", items: [
-                "Apply to 5–10 roles/week minimum",
-                "Target: embedded software, ML systems, edge AI, firmware+ML roles",
-                "LinkedIn: post your projects, engage with the community",
-                "Attend or watch TinyML Summit talks for domain knowledge",
-              ]},
+            "month": "Month 15",
+            "focus": "Job Search & Interview Prep",
+            "hours": "~10 hrs/week",
+            "why": "Skills don't speak for themselves.",
+            "tasks": [
+              {
+                "cat": "INTERVIEW PREP",
+                "items": [
+                  "Systems design — design an edge AI pipeline for a given use case",
+                  "Coding — LeetCode medium, arrays/trees/graphs, 30 problems",
+                  "ML theory — explain quantization, pruning, backprop out loud",
+                  "Embedded — explain interrupt handling, memory layout, DMA"
+                ]
+              },
+              {
+                "cat": "JOB SEARCH",
+                "items": [
+                  "Apply to 5–10 roles per week minimum",
+                  "Target — embedded software, ML systems, edge AI, firmware + ML roles",
+                  "LinkedIn — post your projects, engage with the community",
+                  "Watch TinyML Summit talks for domain knowledge"
+                ]
+              }
             ],
-            milestone: "Land interviews at 3+ companies",
-          },
-        ],
-      },
+            "milestone": "Land interviews at 3+ companies."
+          }
+        ]
+      }
     ];
 
     const toolsAlways = [
-      { name: "Git + GitHub",       when: "Month 1",  why: "Version control is non-negotiable everywhere" },
-      { name: "Linux CLI",          when: "Month 1",  why: "Dev tooling and embedded Linux boards (Jetson, Raspberry Pi) run on it; SSH is daily use" },
-      { name: "Python",             when: "Month 1",  why: "ML glue language, scripting, tooling" },
-      { name: "Docker",             when: "Month 3",  why: "Reproducible builds; most ML infra is containerized" },
-      { name: "C / C++",            when: "Month 8",  why: "Core embedded language, firmware, MCU drivers" },
-      { name: "Makefile / CMake",   when: "Month 8",  why: "Build systems for C/C++ projects" },
-      { name: "GDB",                when: "Month 8",  why: "Debugger for C/C++ — every embedded dev uses this" },
-      { name: "PyTorch",            when: "Month 4",  why: "Industry standard for research and prototyping" },
-      { name: "TensorFlow / Keras", when: "Month 4",  why: "Strong ecosystem for deployment and mobile/edge" },
-      { name: "ONNX",               when: "Month 5",  why: "Model interchange format between frameworks" },
-      { name: "LiteRT / TFLM",      when: "Month 11", why: "Deploy models to MCUs, edge boards and mobile (LiteRT is the new name for TensorFlow Lite)" },
-      { name: "Edge Impulse",       when: "Month 11", why: "Full embedded ML pipeline tool, asked in job posts" },
-      { name: "W&B / MLflow",       when: "Month 4",  why: "Experiment tracking — used in every serious ML team" },
-      { name: "Netron",             when: "Month 7",  why: "Visualize and debug model graphs" },
-      { name: "OpenCV",             when: "Month 5",  why: "Image processing in every CV project" },
-      { name: "FreeRTOS",           when: "Month 10", why: "Most popular RTOS for MCUs" },
-      { name: "GitHub Actions",     when: "Month 12", why: "CI/CD — expected in any software role now" },
+      {
+        "name": "Git + GitHub",
+        "when": "Month 1",
+        "why": "Version control is non-negotiable"
+      },
+      {
+        "name": "Linux CLI",
+        "when": "Month 1",
+        "why": "Dev tooling and embedded Linux boards (Jetson, Raspberry Pi) run on it; SSH is daily use"
+      },
+      {
+        "name": "Python",
+        "when": "Month 1",
+        "why": "ML glue language, scripting, tooling"
+      },
+      {
+        "name": "Docker",
+        "when": "Month 3",
+        "why": "Reproducible builds; most ML infra is containerized"
+      },
+      {
+        "name": "PyTorch",
+        "when": "Month 4",
+        "why": "Industry standard for research and prototyping"
+      },
+      {
+        "name": "TensorFlow / Keras",
+        "when": "Month 4",
+        "why": "Strong ecosystem for deployment and edge"
+      },
+      {
+        "name": "W&B / MLflow",
+        "when": "Month 4",
+        "why": "Experiment tracking used in every serious ML team"
+      },
+      {
+        "name": "ONNX",
+        "when": "Month 5",
+        "why": "Model interchange format between frameworks"
+      },
+      {
+        "name": "OpenCV",
+        "when": "Month 5",
+        "why": "Image processing in every CV project"
+      },
+      {
+        "name": "Netron",
+        "when": "Month 7",
+        "why": "Visualize and debug model graphs"
+      },
+      {
+        "name": "C / C++",
+        "when": "Month 8",
+        "why": "Core embedded language — firmware and MCU drivers"
+      },
+      {
+        "name": "Makefile / CMake",
+        "when": "Month 8",
+        "why": "Build systems for C/C++ projects"
+      },
+      {
+        "name": "GDB",
+        "when": "Month 8",
+        "why": "Debugger for C/C++ — every embedded dev uses it"
+      },
+      {
+        "name": "FreeRTOS",
+        "when": "Month 10",
+        "why": "Most popular RTOS for MCUs"
+      },
+      {
+        "name": "LiteRT / TFLM",
+        "when": "Month 11",
+        "why": "Deploy models to MCUs, edge boards and mobile (LiteRT is the new name for TensorFlow Lite)"
+      },
+      {
+        "name": "Edge Impulse",
+        "when": "Month 11",
+        "why": "Full embedded ML pipeline, listed in job posts"
+      },
+      {
+        "name": "GitHub Actions",
+        "when": "Month 12",
+        "why": "CI/CD — expected in any software role now"
+      }
     ];
-
-    const workloadColor = (w) => {
-      if (w === "Very High") return "#FF4444";
-      if (w === "High") return "#FF6B35";
-      if (w === "Medium–High") return "#FBBF24";
-      if (w === "Medium") return "#60A5FA";
-      return "#00FF9C";
-    };
+    // END GENERATED FROM README.md
 
     function App() {
       const [activePhase, setActivePhase] = useState(0);
@@ -458,7 +599,7 @@
             zIndex: 10,
           }}>
             <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-              <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#444", marginBottom: "6px" }}>
+              <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#8a8a8a", marginBottom: "6px" }}>
                 STUDENT TRACK · 15-MONTH PLAN · ~12–16 HRS/WEEK
               </div>
               <h1 style={{
@@ -494,7 +635,7 @@
                   borderBottom: (!showTools && activePhase === i)
                     ? `3px solid ${p.color}`
                     : "3px solid transparent",
-                  color: (!showTools && activePhase === i) ? p.color : "#444",
+                  color: (!showTools && activePhase === i) ? p.color : "#8a8a8a",
                   cursor: "pointer",
                   textAlign: "left",
                   transition: "all 0.15s",
@@ -514,7 +655,7 @@
                 background: showTools ? "#0f0f1a" : "transparent",
                 border: "none",
                 borderBottom: showTools ? "3px solid #60A5FA" : "3px solid transparent",
-                color: showTools ? "#60A5FA" : "#444",
+                color: showTools ? "#60A5FA" : "#8a8a8a",
                 cursor: "pointer",
                 textAlign: "left",
                 transition: "all 0.15s",
@@ -568,7 +709,7 @@
                           marginLeft: "8px",
                         }}>{t.when}</span>
                       </div>
-                      <div style={{ fontSize: "11px", color: "#555", lineHeight: "1.5" }}>{t.why}</div>
+                      <div style={{ fontSize: "11px", color: "#8a8a8a", lineHeight: "1.5" }}>{t.why}</div>
                     </div>
                   ))}
                 </div>
@@ -644,26 +785,13 @@
                           }}>{m.focus}</span>
 
                           <span style={{
-                            fontSize: "9px",
-                            color: workloadColor(m.workload),
-                            background: "#111",
-                            padding: "2px 8px",
-                            borderRadius: "3px",
-                            border: `1px solid ${workloadColor(m.workload)}33`,
-                            whiteSpace: "nowrap",
-                            display: "none",
-                          }}
-                            className="workload-badge"
-                          >{m.workload}</span>
-
-                          <span style={{
                             fontSize: "10px",
-                            color: "#444",
+                            color: "#8a8a8a",
                             whiteSpace: "nowrap",
                           }}>{m.hours}</span>
 
                           <span style={{
-                            color: isOpen ? phase.color : "#444",
+                            color: isOpen ? phase.color : "#8a8a8a",
                             fontSize: "16px",
                             fontWeight: "300",
                             transition: "color 0.15s",
@@ -786,13 +914,13 @@
               justifyContent: "space-between",
               alignItems: "center",
             }}>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", fontSize: "11px", color: "#444" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", fontSize: "11px", color: "#8a8a8a" }}>
                 <div>
-                  <span style={{ color: "#555" }}>HARDWARE</span>
+                  <span style={{ color: "#a0a0a0" }}>HARDWARE</span>
                   &nbsp; STM32 Nucleo or Arduino Nano 33 BLE Sense Rev2 (~$40) · optional Jetson Orin Nano Super
                 </div>
                 <div>
-                  <span style={{ color: "#555" }}>NOTE</span>
+                  <span style={{ color: "#a0a0a0" }}>NOTE</span>
                   &nbsp; Slow down during exams. Don't skip milestones.
                 </div>
               </div>
@@ -802,7 +930,7 @@
                 rel="noopener noreferrer"
                 style={{
                   fontSize: "11px",
-                  color: "#444",
+                  color: "#8a8a8a",
                   textDecoration: "none",
                   letterSpacing: "1px",
                   transition: "color 0.15s",
@@ -810,8 +938,8 @@
                   alignItems: "center",
                   gap: "6px",
                 }}
-                onMouseEnter={e => e.target.style.color = "#888"}
-                onMouseLeave={e => e.target.style.color = "#444"}
+                onMouseEnter={e => e.currentTarget.style.color = "#bbbbbb"}
+                onMouseLeave={e => e.currentTarget.style.color = "#8a8a8a"}
               >
                 VIEW ON GITHUB ↗
               </a>
