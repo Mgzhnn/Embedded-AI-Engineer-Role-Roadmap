@@ -172,7 +172,7 @@
                 "RNNs, LSTMs — understand vanishing gradient",
                 "Attention mechanism — derive scaled dot-product attention",
                 "Transformer architecture overview",
-                "Tiny models for edge: DistilBERT, keyword spotting models",
+                "Small models for edge: keyword-spotting CNNs for MCUs; DistilBERT-class models for edge boards like Jetson",
               ]},
               { cat: "AUDIO", items: [
                 "Spectrograms, MFCCs — what they are and why",
@@ -197,7 +197,7 @@
               ]},
               { cat: "TOOLS", items: [
                 "TensorFlow Model Optimization Toolkit",
-                "PyTorch quantization API",
+                "PyTorch quantization: torchao (successor to torch.ao.quantization)",
                 "Netron: visualize model graphs",
                 "Start reading datasheets: MCU memory specs",
               ]},
@@ -262,7 +262,7 @@
             focus: "RTOS & System Software",
             workload: "High",
             hours: "~15 hrs/week",
-            why: "Production embedded systems run RTOS. Bare-metal doesn't scale.",
+            why: "Once a device juggles several concurrent jobs, an RTOS keeps it manageable; many production devices use one.",
             tasks: [
               { cat: "RTOS", items: [
                 "Tasks, scheduling, priorities in FreeRTOS",
@@ -287,7 +287,7 @@
             why: "This is the core of the job: getting trained models to run on constrained hardware.",
             tasks: [
               { cat: "FRAMEWORKS", items: [
-                "TensorFlow Lite: flatbuffer format, interpreter API",
+                "LiteRT (formerly TensorFlow Lite): flatbuffer format, interpreter API",
                 "TFLite Micro (TFLM): run inference on MCU with no OS",
                 "ONNX Runtime for edge",
                 "Edge Impulse: full pipeline from data to MCU deployment",
@@ -298,7 +298,7 @@
                 "STM32 Cube.AI or similar vendor tool",
               ]},
             ],
-            milestone: "Run MobileNetV2 INT8 inference on a physical MCU or Jetson Nano. Measure FPS.",
+            milestone: "Run an INT8 image classifier on a physical MCU (a model sized to fit its flash and RAM, e.g. a small-width MobileNet at 96×96) or full MobileNetV2 on a Jetson. Measure FPS.",
           },
         ],
       },
@@ -401,7 +401,7 @@
 
     const toolsAlways = [
       { name: "Git + GitHub",       when: "Month 1",  why: "Version control is non-negotiable everywhere" },
-      { name: "Linux CLI",          when: "Month 1",  why: "Most embedded systems run Linux; SSH is daily use" },
+      { name: "Linux CLI",          when: "Month 1",  why: "Dev tooling and embedded Linux boards (Jetson, Raspberry Pi) run on it; SSH is daily use" },
       { name: "Python",             when: "Month 1",  why: "ML glue language, scripting, tooling" },
       { name: "Docker",             when: "Month 3",  why: "Reproducible builds; most ML infra is containerized" },
       { name: "C / C++",            when: "Month 8",  why: "Core embedded language, firmware, MCU drivers" },
@@ -410,7 +410,7 @@
       { name: "PyTorch",            when: "Month 4",  why: "Industry standard for research and prototyping" },
       { name: "TensorFlow / Keras", when: "Month 4",  why: "Strong ecosystem for deployment and mobile/edge" },
       { name: "ONNX",               when: "Month 5",  why: "Model interchange format between frameworks" },
-      { name: "TFLite / TFLM",      when: "Month 11", why: "Deploy models to MCUs and mobile devices" },
+      { name: "LiteRT / TFLM",      when: "Month 11", why: "Deploy models to MCUs, edge boards and mobile (LiteRT is the new name for TensorFlow Lite)" },
       { name: "Edge Impulse",       when: "Month 11", why: "Full embedded ML pipeline tool, asked in job posts" },
       { name: "W&B / MLflow",       when: "Month 4",  why: "Experiment tracking — used in every serious ML team" },
       { name: "Netron",             when: "Month 7",  why: "Visualize and debug model graphs" },
@@ -789,7 +789,7 @@
               <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", fontSize: "11px", color: "#444" }}>
                 <div>
                   <span style={{ color: "#555" }}>HARDWARE</span>
-                  &nbsp; STM32 Nucleo or Arduino Nano 33 BLE Sense (~$30) · optional Jetson Nano
+                  &nbsp; STM32 Nucleo or Arduino Nano 33 BLE Sense Rev2 (~$40) · optional Jetson Orin Nano Super
                 </div>
                 <div>
                   <span style={{ color: "#555" }}>NOTE</span>
