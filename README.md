@@ -1,3 +1,4 @@
+<!-- Roadmap content lives in this README. After editing it, run: python3 scripts/sync_site.py (rebuilds index.html) -->
 <div align="center">
 
 # Embedded AI Engineer Roadmap
@@ -120,6 +121,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 
 **Frameworks**
 - PyTorch — tensors, autograd, nn.Module
+- Build a 3-layer net on MNIST from scratch in PyTorch
 - TensorFlow + Keras — same exercises in both
 - Weights & Biases (W&B) — experiment tracking from day one
 
@@ -160,7 +162,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 - RNNs, LSTMs — understand the vanishing gradient problem
 - Attention mechanism — derive scaled dot-product attention
 - Transformer architecture overview
-- Tiny models for edge — DistilBERT, keyword spotting models
+- Small models for edge — keyword-spotting CNNs for MCUs; DistilBERT-class models for edge boards like Jetson
 
 **Audio**
 - Spectrograms, MFCCs — what they are and why they work
@@ -186,7 +188,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 
 **Tools**
 - TensorFlow Model Optimization Toolkit
-- PyTorch quantization API
+- PyTorch quantization — `torchao` (successor to `torch.ao.quantization`)
 - Netron — visualize and debug model graphs
 - Start reading MCU datasheets — understand memory specs
 
@@ -249,7 +251,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 
 <br>
 
-**Why this month:** Production embedded systems run RTOS. Bare-metal doesn't scale.
+**Why this month:** Once a device juggles several concurrent jobs, an RTOS keeps it manageable; many production devices use one.
 
 **RTOS**
 - Tasks, scheduling, priorities in FreeRTOS
@@ -275,7 +277,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 **Why this month:** Getting trained models onto constrained hardware is the core of the job.
 
 **Frameworks**
-- TensorFlow Lite — flatbuffer format, interpreter API
+- LiteRT (formerly TensorFlow Lite) — flatbuffer format, interpreter API
 - TFLite Micro (TFLM) — inference on MCU with no OS
 - ONNX Runtime for edge
 - Edge Impulse — full pipeline from data to MCU
@@ -285,7 +287,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 - NVIDIA Jetson — TensorRT basics
 - STM32 Cube.AI or equivalent vendor tool
 
-> **✦ Milestone:** Run MobileNetV2 INT8 inference on a physical MCU or Jetson Nano. Measure FPS.
+> **✦ Milestone:** Run an INT8 image classifier on a physical MCU (a model sized to fit its flash and RAM, e.g. a small-width MobileNet at 96×96) or full MobileNetV2 on a Jetson. Measure FPS.
 
 </details>
 
@@ -392,7 +394,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 | Tool | Learn in | Why it matters |
 |---|---|---|
 | Git + GitHub | Month 1 | Version control is non-negotiable |
-| Linux CLI | Month 1 | Most embedded systems run Linux; SSH is daily use |
+| Linux CLI | Month 1 | Dev tooling and embedded Linux boards (Jetson, Raspberry Pi) run on it; SSH is daily use |
 | Python | Month 1 | ML glue language, scripting, tooling |
 | Docker | Month 3 | Reproducible builds; most ML infra is containerized |
 | PyTorch | Month 4 | Industry standard for research and prototyping |
@@ -405,7 +407,7 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 | Makefile / CMake | Month 8 | Build systems for C/C++ projects |
 | GDB | Month 8 | Debugger for C/C++ — every embedded dev uses it |
 | FreeRTOS | Month 10 | Most popular RTOS for MCUs |
-| TFLite / TFLM | Month 11 | Deploy models to MCUs and mobile |
+| LiteRT / TFLM | Month 11 | Deploy models to MCUs, edge boards and mobile (LiteRT is the new name for TensorFlow Lite) |
 | Edge Impulse | Month 11 | Full embedded ML pipeline, listed in job posts |
 | GitHub Actions | Month 12 | CI/CD — expected in any software role now |
 
@@ -415,11 +417,11 @@ Phase 4 · Months 12–15  →  Integration       (Portfolio projects · MLOps �
 
 You only need one board to start. Get it by Month 9.
 
-**Recommended — Arduino Nano 33 BLE Sense (~$30)**
-Has an IMU, microphone, and camera connector. Runs TFLite Micro. Edge Impulse supports it out of the box.
+**Recommended — Arduino Nano 33 BLE Sense Rev2 (~$40)**
+Has an IMU, microphone and environmental sensors, but no camera (the Arduino Tiny Machine Learning Kit adds a camera shield). 1 MB flash and 256 KB RAM, so size models to fit. Runs TFLite Micro. Edge Impulse supports it out of the box.
 
-**Optional later — NVIDIA Jetson Nano (~$100)**
-GPU-accelerated inference and TensorRT practice.
+**Optional later — NVIDIA Jetson Orin Nano Super Developer Kit (launched at $249)**
+GPU-accelerated inference and TensorRT practice. NVIDIA has phased out the original Jetson Nano developer kit.
 
 ---
 
