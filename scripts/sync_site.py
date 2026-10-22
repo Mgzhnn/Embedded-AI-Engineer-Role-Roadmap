@@ -4,7 +4,9 @@
 Usage:
     python3 scripts/sync_site.py          # rewrite the generated block in index.html
     python3 scripts/sync_site.py --check  # exit 1 if index.html is out of date (used by CI)
+    python3 scripts/sync_site.py --help   # usage; any other argument is an error
 """
+import argparse
 import json
 import re
 import sys
@@ -90,14 +92,25 @@ def render(phases, tools):
             + indent(f"const toolsAlways = {dump(tools)};") + "\n" + END)
 
 
-def main():
+def parse_args(argv):
+    parser = argparse.ArgumentParser(
+        description="Rebuild the roadmap data in index.html from README.md, the single source of the content.",
+        epilog="Without --check, index.html is rewritten in place. Unknown arguments are an error.",
+    )
+    parser.add_argument("--check", action="store_true",
+                        help="exit 1 if index.html is out of date instead of rewriting it (used by CI)")
+    return parser.parse_args(argv)
+
+
+def main(argv=None):
+    args = parse_args(sys.argv[1:] if argv is None else argv)
     phases, tools = parse_readme(README.read_text(encoding="utf-8"))
     site = SITE.read_text(encoding="utf-8")
     if BEGIN not in site or END not in site:
         sys.exit("index.html is missing the generated-data markers")
     start, stop = site.index(BEGIN), site.index(END) + len(END)
     updated = site[:start] + render(phases, tools) + site[stop:]
-    if "--check" in sys.argv:
+    if args.check:
         if updated != site:
             sys.exit("index.html is out of date with README.md; run: python3 scripts/sync_site.py")
         print("index.html matches README.md")
